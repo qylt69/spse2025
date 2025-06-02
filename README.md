@@ -1,6 +1,8 @@
 # Weather APP
 ## Intro
-Using open API from norwegian meteorogical institute: https://api.met.no/weatherapi/locationforecast/2.0/documentation#/ make an application to show weather forecast for specified location.
+Using open API from norwegian meteorogical institute:
+https://api.met.no/weatherapi/locationforecast/2.0/documentation#/
+make an application to show weather forecast for specified location.
 
 ## Acceptance criteria:
 -	App must have GUI (can be either desktop app or cloud base, you can choose)
