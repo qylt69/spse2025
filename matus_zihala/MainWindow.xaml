@@ -1,0 +1,45 @@
+﻿<Window x:Class="matus_zihala.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:matus_zihala"
+        mc:Ignorable="d"
+        Title="Weather App - matus_zihala" Height="500" Width="900" Background="#232946">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,30" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#232946" Effect="{DynamicResource DropShadowEffect}">
+            <TextBlock x:Name="LatitudeLabel" Text="Latitude:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#eebbc3" FontWeight="Bold" FontSize="16" TextAlignment="Center" Width="80"/>
+            <TextBox x:Name="LatitudeTextBox" Width="110" Margin="0,0,20,0" Background="#121629" Foreground="#eebbc3" BorderBrush="#eebbc3" FontSize="16" Padding="6,2" BorderThickness="2" Text="48.7164"/>
+            <TextBlock x:Name="LongitudeLabel" Text="Longitude:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#eebbc3" FontWeight="Bold" FontSize="16" TextAlignment="Center" Width="90"/>
+            <TextBox x:Name="LongitudeTextBox" Width="110" Margin="0,0,20,0" Background="#121629" Foreground="#eebbc3" BorderBrush="#eebbc3" FontSize="16" Padding="6,2" BorderThickness="2" Text="21.2611"/>
+            <TextBlock x:Name="EmailLabel" Text="Email pre API:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="#eebbc3" FontWeight="Bold" FontSize="16" TextAlignment="Center" Width="120"/>
+            <TextBox x:Name="EmailTextBox" Width="230" Margin="0,0,20,0" Background="#121629" Foreground="#eebbc3" BorderBrush="#eebbc3" FontSize="16" Padding="6,2" BorderThickness="2" Text="example@gmail.com"/>
+            <Button x:Name="FetchWeatherButton" Content="Get Weather" Click="FetchWeatherButton_Click" Background="#eebbc3" Foreground="#232946" FontWeight="Bold" Padding="16,8" FontSize="16" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <TextBlock x:Name="StatusTextBlock" Grid.Row="1" Foreground="#ffadad" Margin="0,0,0,10" FontWeight="Bold" FontSize="16" HorizontalAlignment="Stretch" TextAlignment="Center"/>
+        <Border Grid.Row="2" Background="#121629" CornerRadius="30" Padding="40" Effect="{DynamicResource DropShadowEffect}">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock Text="Weather Forecast" FontWeight="Bold" FontSize="28" Foreground="#eebbc3" Margin="0,0,0,28" HorizontalAlignment="Center" TextAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,18">
+                    <Grid Width="80" Height="80">
+                        <Ellipse x:Name="LoadingEllipse" Width="80" Height="80" Fill="#eebbc3" Visibility="Collapsed">
+                            <Ellipse.RenderTransform>
+                                <RotateTransform x:Name="LoadingRotate" Angle="0" CenterX="40" CenterY="40"/>
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+                        <TextBlock x:Name="WeatherIconTextBlock" FontSize="64" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+                <TextBlock x:Name="WeatherResultTextBlock" TextWrapping="Wrap" Foreground="#fffffe" FontSize="22" HorizontalAlignment="Stretch" TextAlignment="Center" Margin="0,0,0,10"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+    <Window.Resources>
+        <DropShadowEffect x:Key="DropShadowEffect" Color="#000000" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
+    </Window.Resources>
+</Window>
